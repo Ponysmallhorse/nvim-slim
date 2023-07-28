@@ -38,24 +38,29 @@ packer.init({
 	},
 })
 
--- Install your plugins here
+-- install your plugins here
 return packer.startup(function(use)
-  use({ "wbthomason/packer.nvim",  }) -- Packer itself
-  use({ "nvim-lua/plenary.nvim", }) -- A lot of stuff needs it
-  use({ "kyazdani42/nvim-web-devicons" }) -- Icons for lualine mainly
-  use({ "moll/vim-bbye"}) -- Allows closing buffers without fucing up windows layout
-  use({ "windwp/nvim-autopairs",}) -- Closes braces and shit. "{(['<
-  use({ "lukas-reineke/indent-blankline.nvim"}) -- Correct indentation
-  use({ "nvim-lualine/lualine.nvim"}) --LuaLine
-  use({ "ggandor/lightspeed.nvim"}) --Fast moving on page
+  use({ "wbthomason/packer.nvim",  }) -- packer itself
+  use({ "nvim-lua/plenary.nvim", }) -- a lot of stuff needs it
+  use({ "kyazdani42/nvim-web-devicons" }) -- icons for lualine mainly
+  use({ "moll/vim-bbye"}) -- allows closing buffers without fucing up windows layout
+  use({ "lukas-reineke/indent-blankline.nvim"}) -- correct indentation
+  use({ "nvim-lualine/lualine.nvim"}) --lualine
+  use({ "ggandor/lightspeed.nvim"}) --fast moving on page
   use({"mbbill/undotree"})
   use({"tpope/vim-fugitive"})
   use("rlch/github-notifications.nvim")
   use("szw/vim-maximizer")
+  use("prichrd/netrw.nvim")
+  use ({
+	"windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+    })
+  use("windwp/nvim-ts-autotag")
 
 
   -- TreeSitter
-  use("nvim-treesitter/nvim-treesitter", {run = ':TSUpdate'})
+  use("nvim-treesitter/nvim-treesitter", {run = ':TSUpdate' })
 
   -- LSP
   use {
@@ -80,6 +85,10 @@ return packer.startup(function(use)
 		  {'rafamadriz/friendly-snippets'},
 	  }
   }
+  -- DAP and debuggers
+  use('mfussenegger/nvim-dap')
+  use('leoluz/nvim-dap-go')
+  use('rcarriga/nvim-dap-ui')
 
   -- Telescope
   use({"nvim-telescope/telescope.nvim"})

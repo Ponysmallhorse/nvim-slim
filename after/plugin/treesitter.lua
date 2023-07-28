@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "vimdoc", "python", "go", "c", "lua", "rust" },
+  ensure_installed = { "vimdoc", "python", "go", "c", "lua", "rust", "html", "css", "javascript" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -22,6 +22,9 @@ require'nvim-treesitter.configs'.setup {
   autopairs = {
       enable = true,
   },
-  
+  autotag = {
+      enable = true,
+  }
+
 }
 
