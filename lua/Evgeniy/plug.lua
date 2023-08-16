@@ -46,7 +46,6 @@ return packer.startup(function(use)
   use({ "moll/vim-bbye"}) -- allows closing buffers without fucing up windows layout
   use({ "lukas-reineke/indent-blankline.nvim"}) -- correct indentation
   use({ "nvim-lualine/lualine.nvim"}) --lualine
-  use({ "ggandor/lightspeed.nvim"}) --fast moving on page
   use({"mbbill/undotree"})
   use({"tpope/vim-fugitive"})
   use("rlch/github-notifications.nvim")
@@ -88,6 +87,7 @@ return packer.startup(function(use)
   -- DAP and debuggers
   use('mfussenegger/nvim-dap')
   use('leoluz/nvim-dap-go')
+  use('mfussenegger/nvim-dap-python')
   use('rcarriga/nvim-dap-ui')
 
   -- Telescope

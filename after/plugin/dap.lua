@@ -1,4 +1,5 @@
 require("dap-go").setup()
+require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
 
 print("DAP initializing")
 
@@ -27,7 +28,7 @@ dap.configurations.go = {
     }
 }
 
-dap.configurations.go = {
+dap.configurations.python = {
     {
         type = "python",
         name = "Debug",

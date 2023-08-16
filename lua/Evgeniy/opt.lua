@@ -44,19 +44,20 @@ local options = {
 }
 
 vim.opt.shortmess:append "c"
-
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
+
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 vim.cmd([[
 augroup CurColor
-autocmd!
-autocmd ColorScheme * highlight iCursor guibg=magenta4
-autocmd ColorScheme * highlight Cursor guibg=DarkSlateGray4
-autocmd ColorScheme * highlight vCursor guibg=MediumPurple4
+au!
+au ColorScheme * highlight iCursor guibg=magenta4
+au ColorScheme * highlight Cursor guibg=DarkSlateGray4
+au ColorScheme * highlight vCursor guibg=MediumPurple4
 augroup end
 ]])
+
