@@ -28,14 +28,14 @@ dap.configurations.go = {
     }
 }
 
-dap.configurations.python = {
-    {
-        type = "python",
-        name = "Debug",
-        request = "launch",
-        program = "${file}"
-    }
-}
+table.insert(require('dap').configurations.python, {
+    type = 'python',
+    request = 'launch',
+    name = 'Default python launch',
+    program = '${file}',
+    cwd = "${workspaceFolder}"
+})
+
 require("dapui").setup({
   icons = { expanded = "▾", collapsed = "▸" },
   mappings = {
@@ -76,3 +76,4 @@ require("dapui").setup({
   },
   windows = { indent = 1 },
 })
+require('dap.ext.vscode').load_launchjs()

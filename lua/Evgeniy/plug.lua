@@ -51,6 +51,12 @@ return packer.startup(function(use)
   use("rlch/github-notifications.nvim")
   use("szw/vim-maximizer")
   use("prichrd/netrw.nvim")
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+    }
   use ({
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
