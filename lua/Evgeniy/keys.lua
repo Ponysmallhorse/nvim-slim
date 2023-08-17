@@ -55,17 +55,17 @@ keymap("n", "<leader>o", ":sp<cr>", opts) -- open window below
 keymap("n", "<leader>p", ":vs<cr>", opts) -- open window to left
 
 -- Telescope key
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 --vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-vim.keymap.set('n', '<leader>fs', function()
+vim.keymap.set("n", "<leader>fs", function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end, {})
-vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
+vim.keymap.set("n", "<leader>vh", builtin.help_tags, {})
 
-vim.keymap.set('n', 'Q', '<nop>', {})
-vim.keymap.set('n', '<leader>qq', ":q<cr>", {})
+vim.keymap.set("n", "Q", "<nop>", {})
+vim.keymap.set("n", "<leader>qq", ":q<cr>", {})
 
 -- DAP
 keymap("n", "<F10>", ":lua require('dapui').toggle()<CR>", opts)
@@ -79,7 +79,12 @@ keymap("v", "<Leader>h", ":lua require('dap.ui.variables').visual_hover()<CR>", 
 keymap("n", "<leader>h", ":lua require('dap.ui.variables').hover()<CR>", opts)
 
 keymap("n", "<Leader>duh", ":lua require('dap.ui.widgets').hover()<CR>", opts)
-keymap("n", "<Leader>duf", ":lua local widgets=require('dap.ui.widgets');widgets.centered_float(widgets.scopes)<CR>", opts)
+keymap(
+	"n",
+	"<Leader>duf",
+	":lua local widgets=require('dap.ui.widgets');widgets.centered_float(widgets.scopes)<CR>",
+	opts
+)
 
 keymap("n", "<S-F10>", ":lua require('dap').repl.open()<CR>", opts)
 keymap("n", "<C-F7>", ":lua require('dap').repl.run_last()<CR>", opts)

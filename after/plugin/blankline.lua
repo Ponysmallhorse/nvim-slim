@@ -14,7 +14,7 @@ vim.g.indent_blankline_filetype_exclude = {
 	"neogitstatus",
 	"NvimTree",
 	"Trouble",
-    "netrw"
+	"netrw",
 }
 vim.g.indentLine_enabled = 1
 -- vim.g.indent_blankline_char = "│"
@@ -49,9 +49,9 @@ vim.g.indent_blankline_context_patterns = {
 -- HACK: work-around for https://github.com/lukas-reineke/indent-blankline.nvim/issues/59
 --vim.wo.colorcolumn = "99999"
 
-indent_blankline.setup {
-    -- for example, context is off by default, use this to turn it on
-    show_current_context = true,
-    show_current_context_start = true,
-    show_end_of_line = false
-}
+indent_blankline.setup({
+	-- for example, context is off by default, use this to turn it on
+	show_current_context = true,
+	show_current_context_start = true,
+	show_end_of_line = false,
+})

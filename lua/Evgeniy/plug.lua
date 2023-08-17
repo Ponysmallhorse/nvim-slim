@@ -40,71 +40,71 @@ packer.init({
 
 -- install your plugins here
 return packer.startup(function(use)
-  use({ "wbthomason/packer.nvim",  }) -- packer itself
-  use({ "nvim-lua/plenary.nvim", }) -- a lot of stuff needs it
-  use({ "kyazdani42/nvim-web-devicons" }) -- icons for lualine mainly
-  use({ "moll/vim-bbye"}) -- allows closing buffers without fucing up windows layout
-  use({ "lukas-reineke/indent-blankline.nvim"}) -- correct indentation
-  use({ "nvim-lualine/lualine.nvim"}) --lualine
-  use({"mbbill/undotree"})
-  use({"tpope/vim-fugitive"})
-  use("rlch/github-notifications.nvim")
-  use("szw/vim-maximizer")
-  use("prichrd/netrw.nvim")
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
-    }
-  use ({
-	"windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-    })
-  use("windwp/nvim-ts-autotag")
+	use({ "wbthomason/packer.nvim" }) -- packer itself
+	use({ "nvim-lua/plenary.nvim" }) -- a lot of stuff needs it
+	use({ "kyazdani42/nvim-web-devicons" }) -- icons for lualine mainly
+	use({ "moll/vim-bbye" }) -- allows closing buffers without fucing up windows layout
+	use({ "lukas-reineke/indent-blankline.nvim" }) -- correct indentation
+	use({ "nvim-lualine/lualine.nvim" }) --lualine
+	use({ "mbbill/undotree" })
+	use({ "tpope/vim-fugitive" })
+	use("rlch/github-notifications.nvim")
+	use("szw/vim-maximizer")
+	use("prichrd/netrw.nvim")
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	})
+	use("windwp/nvim-ts-autotag")
 
+	-- TreeSitter
+	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
-  -- TreeSitter
-  use("nvim-treesitter/nvim-treesitter", {run = ':TSUpdate' })
+	-- LSP
+	use({
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v1.x",
 
-  -- LSP
-  use {
-	  'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v1.x',
-	  requires = {
-		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},
-		  {'williamboman/mason.nvim'},
-		  {'williamboman/mason-lspconfig.nvim'},
+		requires = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" },
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lua" },
 
-		  -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},
-		  {'hrsh7th/cmp-buffer'},
-		  {'hrsh7th/cmp-path'},
-		  {'saadparwaiz1/cmp_luasnip'},
-		  {'hrsh7th/cmp-nvim-lsp'},
-		  {'hrsh7th/cmp-nvim-lua'},
+			-- Snippets
+			{ "L3MON4D3/LuaSnip" },
+			{ "rafamadriz/friendly-snippets" },
+		},
+	})
+	use("jose-elias-alvarez/null-ls.nvim")
+	-- DAP and debuggers
+	use("mfussenegger/nvim-dap")
+	use("leoluz/nvim-dap-go")
+	use("mfussenegger/nvim-dap-python")
+	use("rcarriga/nvim-dap-ui")
 
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},
-		  {'rafamadriz/friendly-snippets'},
-	  }
-  }
-  -- DAP and debuggers
-  use('mfussenegger/nvim-dap')
-  use('leoluz/nvim-dap-go')
-  use('mfussenegger/nvim-dap-python')
-  use('rcarriga/nvim-dap-ui')
+	-- Telescope
+	use({ "nvim-telescope/telescope.nvim" })
+	use({ "theprimeagen/harpoon" })
 
-  -- Telescope
-  use({"nvim-telescope/telescope.nvim"})
-  use({"theprimeagen/harpoon"})
-
-  -- Colorschemes
-  use({ "folke/tokyonight.nvim"})
-  use("lunarvim/darkplus.nvim")
-  use("NLKNguyen/papercolor-theme")
-  use("rebelot/kanagawa.nvim")
+	-- Colorschemes
+	use({ "folke/tokyonight.nvim" })
+	use("lunarvim/darkplus.nvim")
+	use("NLKNguyen/papercolor-theme")
+	use("rebelot/kanagawa.nvim")
 end)
-
-

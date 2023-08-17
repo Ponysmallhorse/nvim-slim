@@ -21,7 +21,7 @@ local diff = {
 	"diff",
 	colored = false,
 	symbols = { added = "+ ", modified = "* ", removed = "- " }, -- changes diff symbols
-    cond = hide_in_width
+	cond = hide_in_width,
 }
 
 local mode = {
@@ -66,7 +66,7 @@ lualine.setup({
 	options = {
 		icons_enabled = true,
 		theme = "auto",
-        globalstatus = true,
+		globalstatus = true,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "netrw" },
@@ -74,29 +74,28 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { branch, diagnostics },
-		lualine_b = { mode, diff},
-		lualine_c = { 'filename'},
-	    lualine_x = { "encoding", "fileformat", "filetype" },
+		lualine_b = { mode, diff },
+		lualine_c = { "filename" },
+		lualine_x = { "encoding", "fileformat", "filetype" },
 		--lualine_x = {  spaces, "encoding", filetype },
 		lualine_y = { location },
 		lualine_z = { progress },
 	},
 	inactive_sections = {
 		lualine_a = { branch, diagnostics },
-		lualine_b = { diff},
-		lualine_c = { {'filename', file_status = true, path=1}},
-	    lualine_x = { "encoding", "fileformat", "filetype" },
+		lualine_b = { diff },
+		lualine_c = { { "filename", file_status = true, path = 1 } },
+		lualine_x = { "encoding", "fileformat", "filetype" },
 		--lualine_x = {  spaces, "encoding", filetype },
 		lualine_y = {},
 		lualine_z = { progress },
-    },
+	},
 	tabline = {},
 	extensions = {},
-    winbar = {
-		lualine_a = {{'filename', path=1} },
-
-    },
-    inactive_winbar = {
-        lualine_a = {{'filename', path=1}}
-    }
+	winbar = {
+		lualine_a = { { "filename", path = 1 } },
+	},
+	inactive_winbar = {
+		lualine_a = { { "filename", path = 1 } },
+	},
 })
