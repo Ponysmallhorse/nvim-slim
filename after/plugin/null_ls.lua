@@ -14,29 +14,28 @@ local format = null_ls.builtins.formatting
 local diag = null_ls.builtins.diagnostics
 
 null_ls.setup({
-	on_attach = function(client, bufnr)
-		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = augroup,
-				buffer = bufnr,
-				callback = function()
-					vim.lsp.buf.format({ async = true })
-				end,
-			})
-		end
-	end,
-	sources = {
-		format.prettier,
-		format.black,
-		format.isort,
-		format.autoflake,
-		format.stylua,
-		format.goimports,
-		format.sqlfmt,
+    on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = augroup,
+                buffer = bufnr,
+                callback = function()
+                    vim.lsp.buf.format({})
+                end,
+            })
+        end
+    end,
+    sources = {
+        format.prettier,
+        format.black,
+        format.isort,
+        format.autoflake,
+        format.stylua,
+        format.goimports,
+        format.sqlfmt,
 
-		diag.mypy,
-		diag.ruff,
-		diag.golangcilint,
-	},
+        diag.mypy,
+        diag.ruff,
+    },
 })
