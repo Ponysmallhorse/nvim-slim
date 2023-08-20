@@ -107,4 +107,7 @@ return packer.startup(function(use)
 	use("lunarvim/darkplus.nvim")
 	use("NLKNguyen/papercolor-theme")
 	use("rebelot/kanagawa.nvim")
+
+	--Neodev
+	use("folke/neodev.nvim")
 end)
