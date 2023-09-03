@@ -91,6 +91,7 @@ return packer.startup(function(use)
 			{ "rafamadriz/friendly-snippets" },
 		},
 	})
+	use("ray-x/lsp_signature.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 	-- DAP and debuggers
 	use("mfussenegger/nvim-dap")
