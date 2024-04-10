@@ -69,6 +69,7 @@ return packer.startup(function(use)
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
 	-- LSP
+	use({ "gleam-lang/gleam.vim" })
 	use({
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v1.x",
@@ -97,6 +98,9 @@ return packer.startup(function(use)
 	use("leoluz/nvim-dap-go")
 	use("mfussenegger/nvim-dap-python")
 	use("rcarriga/nvim-dap-ui")
+	use({
+		"ray-x/lsp_signature.nvim",
+	})
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })

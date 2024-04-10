@@ -4,8 +4,8 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
 	"pyright",
+	"gleam",
 })
-
 -- Fix Undefined global 'vim'
 lsp.nvim_workspace()
 
@@ -26,7 +26,7 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.set_preferences({
-	suggest_lsp_servers = false,
+	suggest_lsp_servers = true,
 	sign_icons = {
 		error = "",
 		warn = "",
@@ -80,6 +80,7 @@ lsp.format_on_save({
 		["goimports"] = { "go" },
 	},
 })
+lsp.configure("gleam", require("lspconfig.server_configurations.gleam"))
 lsp.setup()
 
 vim.diagnostic.config({

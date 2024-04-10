@@ -1,18 +1,18 @@
 require("neodev").setup({
-	library = {
-		enabled = false,
-	},
-	setup_jsonls = false,
+    library = {
+        enabled = false,
+    },
+    setup_jsonls = false,
 })
 
 local lspconf = require("lspconfig")
 
 lspconf.lua_ls.setup({
-	settings = {
-		Lua = {
-			completion = {
-				callSnipper = "Replace",
-			},
-		},
-	},
+    settings = {
+        Lua = {
+            completion = {
+                callSnipper = "Replace",
+            },
+        },
+    },
 })
