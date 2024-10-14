@@ -92,6 +92,7 @@ return packer.startup(function(use)
 			{ "rafamadriz/friendly-snippets" },
 		},
 	})
+	use("scalameta/nvim-metals")
 	use("jose-elias-alvarez/null-ls.nvim")
 	-- DAP and debuggers
 	use("mfussenegger/nvim-dap")

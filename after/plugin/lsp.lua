@@ -4,7 +4,6 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
 	"pyright",
-	"gleam",
 })
 -- Fix Undefined global 'vim'
 lsp.nvim_workspace()
@@ -80,9 +79,17 @@ lsp.format_on_save({
 		["goimports"] = { "go" },
 	},
 })
-lsp.configure("gleam", require("lspconfig.server_configurations.gleam"))
 lsp.setup()
 
 vim.diagnostic.config({
 	virtual_text = true,
 })
+local lspconfig = require("lspconfig")
+lspconfig.gleam.setup({
+	cmd = { "gleam", "lsp" },
+	filetypes = { "gleam" },
+	root_dir = lspconfig.util.root_pattern("gleam.toml", ".git"),
+	-- capabilities = require("user.lsp.handlers").capabilities,
+})
+local metals_config = require("metals").bare_config
+metals_config.setup()
